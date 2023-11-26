@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+    />
+    <title>Your Portfolio</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      a{
+        text-decoration: none;
+        color: black;
+      }
+
+      nav {
+        background-color: #333;
+        color: #fff;
+        text-align: right;
+        padding: 15px 15px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 15px;
+        margin-right: 30px;
+        transition: font-size 0.3s, background-color 0.3s, color 0.3s;
+      }
+
+      nav a:hover {
+        color: darkcyan;
+        /* color: black; */
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        padding: 20px;
+        margin-top: 60px;
+      }
+
+      .text-column {
+        flex: 1;
+        padding: 20px;
+        padding-left: 300px;
+      }
+
+      .image-column {
+        flex: 1;
+        text-align: center;
+        padding-right: 200px;
+      }
+
+      .circular-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      .circular-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .fixed-icons {
+        position: fixed;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        z-index: 1000;
+      }
+
+      .fixed-icons a {
+        display: block;
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 20px;
+        text-align: center;
+        background-color: darkcyan;
+        border-radius: 50%;
+        padding: 10px 15px;
+        margin-left: 125px;
+        transition: background-color 0.3s;
+      }
+
+      .fixed-icons a:hover {
+        border-radius: 75%;
+        background-color: #ee0d0d;
+        transform: scale(1.4);
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      p {
+        line-height: 1.4;
+        font-size: 1.1em;
+      }
+
+      .contact-button {
+        display: inline-block;
+        background-color: darkcyan;
+        color: #fff;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        /* Adjust the margin as needed */
+        transition: background-color 0.3s;
+        position: relative;
+      }
+
+      .contact-button:hover {
+        background-color: #ee0d0d;
+        transform: scale(1.1);
+      }
+
+      #about-me {
+        padding: 40px 0;
+      }
+
+      #about-me .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #about-me .text-column {
+        flex: 1;
+        text-align: center;
+        padding-right: 250px;
+        max-width: 800px;
+      }
+
+      #about-me h2 {
+        font-size: 2em;
+        color: #333;
+      }
+
+      #about-me h3 {
+        font-size: 20px;
+        color: darkcyan;
+        margin-top: 10px;
+      }
+
+      #about-me p {
+        font-size: 1.1em;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      #about-me .stat-box {
+        margin-top: 1px;
+        padding: 20px;
+        text-align: center;
+      }
+      #about-me .stat-box p:hover{
+        background-color: #f4f4f477;
+      }
+
+      #about-me .stat-box h4 {
+        font-size: 10px;
+        color: darkcyan;
+      }
+
+      #about-me .stat-box p {
+        font-size: 1.5em;
+        color: #333;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      .s {
+        padding-left: 25px;
+        display: flex;
+      }
+
+      .image-container {
+        position: relative;
+      }
+
+      .image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      #about-me .image-column {
+        text-align: center;
+        position: relative;
+        margin-top: -500px;
+        /* Adjust the margin-top as needed to bring them up */
+        margin-left: 400px;
+        /* Adjust the margin-left as needed */
+      }
+
+      #about-me .image-container {
+        position: relative;
+      }
+
+      #about-me .image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 300 3px;
+        /* Adjust the margin as needed */
+        position: absolute;
+      }
+
+      .image1 {
+        top: 100px;
+        right: 0;
+        left: 100px;
+        z-index: 1;
+      }
+
+      .image2 {
+        top: 40px;
+        left: -25px;
+        right: 40px;
+      }
+
+#Skills .container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Updated alignment */
+    height: 70vh;
+    padding: 20px;
+}
+
+#Skills .skill {
+    flex: 1;
+}
+
+#Skills .skills1 {
+    align-items: center; 
+    padding: 70px;
+    padding-left: 300px;
+    line-height: 1.5;
+    font-size: large;
+}
+
+#Skills .text-column {
+    flex: 1;
+    padding-left: 100px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 100px; 
+}
+#Skills ul{
+    padding: 15px;
+    font-size: medium;
+    line-height: 1.3;
+}
+#Skills li{
+    padding: 5px;
+}
+
+#Skills .skill-meter {
+    width: 300px;
+    height: 10px;
+    background-color: rgb(151, 214, 216);
+    margin: 20px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#Skills .skill-progress {
+    height: 100%;
+    width: 95%;
+    background-color: cadetblue;
+}
+
+#Skills .skill-progress-1 {
+    height: 100%;
+    width: 75%;
+    background-color: cadetblue;
+}
+
+#Skills .skill-progress-3 {
+    height: 100%;
+    width: 85%;
+    background-color: cadetblue;
+}
+
+#Skills .skill-progress-4 {
+    height: 100%;
+    width: 65%;
+    background-color: cadetblue;
+}
+
+#Skills h1 {
+    padding-top: 100px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 2.1em;
+    color: #333;
+}
+
+p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+      #contact {
+        padding: 40px 0;
+      }
+      #contact .m {
+        /* justify-content: center; */
+        /* display: flex; */
+        width: 100%;
+      }
+
+      #contact .section {
+        font-size: 2em;
+        color: #333;
+      }
+
+      #contact .subtitle {
+        font-size: 1.2em;
+        color: darkcyan;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      #contact .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        padding: 0;
+        height: 70vh;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 100px;
+      }
+
+      #contact .contact__info {
+        /* flex: ; */
+        margin-right: 20px;
+      }
+
+      #contact .text-column {
+        font-size: 1.1em;
+        display: flex;
+        flex-direction: column;
+        /* margin-left: 300px; */
+        padding: 20px;
+      }
+      #contact .form-column {
+        display: flex;
+      }
+
+      #contact .contact__form {
+        /* flex: 5; */
+        width: 400px;
+      }
+
+      #contact .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      #contact .contact__inputs {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #contact .contact__content {
+      }
+
+      #contact .contact__label {
+        font-size: 1.1em;
+        text-align: left;
+        color: #555;
+      }
+
+      #contact .contact__input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      #contact .button {
+        display: inline-block;
+        background-color: darkcyan;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        position: relative;
+      }
+
+      #contact .button:hover {
+        background-color: #ee0d0d;
+        transform: scale(1.1);
+      }
+
+      #contact .button--flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #contact .button__icon {
+        margin-left: 5px;
+      }
+
+      #contact .contact-icon {
+        margin-right: 5px;
+      }
+
+      #contact .fa-phone:before {
+        content: "\f095";
+      }
+
+      #contact .fa-envelope:before {
+        content: "\f0e0";
+      }
+
+      #contact .fa-map-marker-alt:before {
+        content: "\f3c5";
+      }
+
+      #contact .fa-paper-plane:before {
+        content: "\f1d8";
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="fixed-icons">
+      <a href="#" aria-label="Home"><i class="fas fa-home"></i></a>
+      <a
+        href="https://www.linkedin.com/in/tushar-jaju-240b501a6/"
+        aria-label="About"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <a href="https://github.com/Tushar-9802" aria-label="Portfolio"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a href="tusharbrisingr9802@gnail.com" aria-label="Contact"
+        ><i class="fas fa-envelope"></i
+      ></a>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about-me">About</a>
+      <a href="#Skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+      <div class="text-column">
+        <h1>Hi, I am Tushar</h1>
+        <h3>Software Developer, Data Analyst, Web Developer</h3>
+        <p>
+          Welcome to my portfolio website. I am an Engineer with a Bachelor's in
+          Computer Science Engineering, specializing in Data Science.
+        </p>
+        <a href="#contact" class="contact-button"> Contact Me </a>
+      </div>
+
+      <div class="image-column">
+        <div class="circular-image">
+          <img
+            src="C:\Users\A\OneDrive\Pictures\Camera Roll\IMG_20230604_062653.jpg"
+            alt="Your Name"
+          />
+        </div>
+      </div>
+    </div>
+    <section id="about-me">
+      <div class="container">
+        <div class="image-column">
+          <div class="image-container">
+            <img
+              src="C:\Users\A\OneDrive\Pictures\Screenshots\Screenshot 2023-11-26 162142.png"
+              alt="Image 1"
+              class="image image1"
+            />
+            <img
+              src="C:\Users\A\OneDrive\Pictures\Screenshots\Screenshot 2023-11-26 162104.png"
+              alt="Image 2"
+              class="image image2"
+            />
+          </div>
+        </div>
+        <div class="text-column">
+          <h2>About Me</h2>
+          <h3>Introduction</h3>
+          <p>
+            Software Developer, with a command of Python and CPP. Also working
+            on WebDev, with the current focus being Front-End. Also have worked
+            as an editor for several fiction and non-fiction works.
+          </p>
+          <div class="s">
+            <div class="stat-box">
+              <p>200+</p>
+              <h4>Coding Problems Solved</h4>
+            </div>
+            <div class="stat-box">
+              <p>2+</p>
+              <h4>Projects Completed</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Skills">
+        <h1>Skills</h1>
+      <div class="container">
+        <div class="skill">
+        <div class="skills1">
+            Over the months I have been doing my graduation, I have picked up the following skills, and even now, I continue to expand upon them.
+            <ul type="none">
+                <li>Competitive Programming in Python</li>
+                <li>Competitive Programming in C/C++</li>
+                <li>Web Development—current focus being Front End</li>
+                <li>Professional Communication Skills—Reports, Arcticles and MoMs</li>
+            </ul>
+        </div>
+        </div>
+        <div class="skill">
+        <div class="text-column">
+          
+          <p></p>
+          <h3>Programming Skills</h3>
+          <div class="skill-meter">
+            <div class="skill-progress-1"></div>
+          </div>
+          <h3>Professional Communication</h3>
+          <div class="skill-meter">
+            <div class="skill-progress"></div>
+          </div>
+          <h3>Reasoning and Analysis</h3>
+          <div class="skill-meter">
+            <div class="skill-progress-3"></div>
+          </div>
+          <h3>Web-Dev</h3>
+          <div class="skill-meter">
+            <div class="skill-progress-4"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="m">
+        <center>
+          <div class="n">
+            <h2 class="section">Contact Me</h2>
+            <span class="subtitle">Get in Touch</span>
+          </div>
+          <div class="container">
+            <div class="contact__info">
+              <div class="text-column">
+                <div>
+                  <h3 class="contact__title">Call Me</h3>
+                  <span class="contact__subtitle"
+                    ><i class="fas fa-phone contact-icon"></i
+                    >+91-9927280188</span
+                  >
+                </div>
+
+                <div class="contact__information">
+                  <div>
+                    <h3 class="contact__title">Email</h3>
+                    <p>
+                      <a
+                        class="contact__subtitle"
+                        href="mailto:erolbicer@live.com"
+                        ><i class="fas fa-envelope contact-icon"></i
+                        >tusharbrisingr9802@gmail.com</a
+                      >
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 class="contact__title">Location</h3>
+                    <span class="contact__subtitle"
+                      ><i class="fas fa-map-marker-alt contact-icon"></i>Uttar
+                      Pradesh, India</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-column">
+              <form action="" class="contact__form grid">
+                <!-- <div class="contact__inputs grid"> -->
+                <div class="contact__content">
+                  <label for="" class="contact__label">Full Name</label>
+                  <input
+                    type="text"
+                    placeholder="Enter full name"
+                    class="contact__input"
+                    id="fullName"
+                    onkeyup="validateName()"
+                  />
+                  <span id="name-error" class="contact__subtitle"></span>
+                </div>
+                <div class="contact__content">
+                  <label for="" class="contact__label">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Enter email address"
+                    class="contact__input"
+                    id="email_id"
+                    onkeyup="validateEmail()"
+                  />
+                  <span id="email-error" class="contact__subtitle"></span>
+                </div>
+                <!-- </div> -->
+                <div class="contact__content">
+                  <label for="" class="contact__label">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    placeholder="Enter a subject line"
+                    class="contact__input"
+                  />
+                </div>
+                <div class="contact__content">
+                  <label for="" class="contact__label">Message</label>
+                  <textarea
+                    name=""
+                    cols="0"
+                    rows="7"
+                    placeholder="Enter your message"
+                    class="contact__input"
+                    id="message"
+                    onkeyup="validateMessage()"
+                  ></textarea>
+                  <span id="message-error" class="contact__subtitle"></span>
+                </div>
+                <div>
+                  <a onclick="return SendMail()" class="button button--flex">
+                    Send Message
+                    <i class="fas fa-paper-plane button__icon"></i>
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </center>
+      </div>
+    </section>
+  </body>
+</html>
