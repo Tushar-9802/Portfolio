@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior:smooth;">
   <head>
     <meta charset="UTF-8" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +38,7 @@
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 1000;
+        z-index: 1;
       }
 
       h3 {
@@ -52,8 +53,9 @@
         transition: font-size 0.3s, background-color 0.3s, color 0.3s;
       }
 
-      nav a:hover {
+      nav>a:hover {
         color: darkcyan;
+        font-size: large;
         /* color: black; */
       }
 
@@ -115,7 +117,7 @@
 
       .fixed-icons a:hover {
         border-radius: 75%;
-        background-color: #ee0d0d;
+        background-color:rgb(6, 110, 110);
         transform: scale(1.4);
         transition: background-color 0.3s, transform 0.3s;
       }
@@ -178,7 +180,7 @@
       }
 
       #about-me .stat-box {
-        margin-top: 1px;
+        margin-top: 10px;
         padding: 20px;
         text-align: center;
       }
@@ -192,7 +194,7 @@
       }
 
       #about-me .stat-box p {
-        font-size: 1.5em;
+        font-size: 1.9em;
         color: #333;
         margin-top: 10px;
         font-weight: bold;
@@ -243,13 +245,24 @@
         left: 100px;
         z-index: 1;
       }
+      .image1:hover{
+        z-index: 3;
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        border-radius: 5px;
+      }
 
       .image2 {
         top: 40px;
         left: -25px;
         right: 40px;
       }
-
+      .image2:hover{
+        z-index: 4;
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        border-radius: 5px;
+      }
 #Skills .container {
     display: flex;
     justify-content: center;
@@ -472,12 +485,12 @@ p {
       <a href="https://github.com/Tushar-9802" aria-label="Portfolio"
         ><i class="fab fa-github"></i
       ></a>
-      <a href="tusharbrisingr9802@gnail.com" aria-label="Contact"
+      <a href="mailto:tusharbrisingr9802@gmail.com" aria-label="Contact"
         ><i class="fas fa-envelope"></i
       ></a>
     </div>
 
-    <nav>
+    <nav class="n">
       <a href="#">Home</a>
       <a href="#about-me">About</a>
       <a href="#Skills">Skills</a>
@@ -498,7 +511,7 @@ p {
       <div class="image-column">
         <div class="circular-image">
           <img
-            src="IMG_20230604_062653.jpg"
+            src="C:\Users\A\OneDrive\Pictures\Camera Roll\IMG_20230604_062653.jpg"
             alt="Your Name"
           />
         </div>
@@ -509,12 +522,12 @@ p {
         <div class="image-column">
           <div class="image-container">
             <img
-              src="Screenshot 2023-11-26 162142.png"
+              src="C:\Users\A\OneDrive\Pictures\Screenshots\Screenshot 2023-11-26 162142.png"
               alt="Image 1"
               class="image image1"
             />
             <img
-              src="Screenshot 2023-11-26 162104.png"
+              src="C:\Users\A\OneDrive\Pictures\Screenshots\Screenshot 2023-11-26 162104.png"
               alt="Image 2"
               class="image image2"
             />
@@ -673,6 +686,12 @@ p {
                   <a onclick="return SendMail()" class="button button--flex">
                     Send Message
                     <i class="fas fa-paper-plane button__icon"></i>
+                  </a>
+                </div>
+                <div>
+                  <a onclick="return SendMail()" class="button button--flex">
+                    Schedule Meeting
+                    <i class="fas fa-person"></i>
                   </a>
                 </div>
               </form>
