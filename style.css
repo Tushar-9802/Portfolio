@@ -620,9 +620,6 @@ p {
         grid-template-columns: 1fr 1fr;
       }
 
-      #contact .contact__content {
-      }
-
       #contact .contact__label {
         font-size: 1.1em;
         text-align: left;
