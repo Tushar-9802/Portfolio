@@ -306,113 +306,131 @@
 </section>
 
     <section class="contact" id="contact">
-      <div class="m">
-        <center>
-          <div class="n">
-            <h2 class="section">Contact Me</h2>
-            <span class="subtitle">Get in Touch</span>
-          </div>
-          <div class="container">
-            <div class="contact__info">
-              <div class="text-column">
-                <div>
-                  <h3 class="contact__title">Call Me</h3>
-                  <span class="contact__subtitle"
-                    ><i class="fas fa-phone contact-icon"></i
-                    >+91-9927280188</span
+  <div class="m">
+    <center>
+      <div class="n">
+        <h2 class="section">Contact Me</h2>
+        <span class="subtitle">Get in Touch</span>
+      </div>
+
+      <div class="container">
+        <div class="contact__info">
+          <div class="text-column">
+            <div>
+              <h3 class="contact__title">Call Me</h3>
+              <span class="contact__subtitle">
+                <i class="fas fa-phone contact-icon"></i>
+                +91-9927280188
+              </span>
+            </div>
+
+            <div class="contact__information">
+              <div>
+                <h3 class="contact__title">Email</h3>
+                <p>
+                  <a
+                    class="contact__subtitle"
+                    href="mailto:tusharbrisingr9802@gmail.com"
                   >
-                </div>
+                    <i class="fas fa-envelope contact-icon"></i>
+                    tusharbrisingr9802@gmail.com
+                  </a>
+                </p>
+              </div>
 
-                <div class="contact__information">
-                  <div>
-                    <h3 class="contact__title">Email</h3>
-                    <p>
-                      <a
-                        class="contact__subtitle"
-                        href="mailto:erolbicer@live.com"
-                        ><i class="fas fa-envelope contact-icon"></i
-                        >tusharbrisingr9802@gmail.com</a
-                      >
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 class="contact__title">Location</h3>
-                    <span class="contact__subtitle"
-                      ><i class="fas fa-map-marker-alt contact-icon"></i>Uttar
-                      Pradesh, India</span
-                    >
-                  </div>
-                </div>
+              <div>
+                <h3 class="contact__title">Location</h3>
+                <span class="contact__subtitle">
+                  <i class="fas fa-map-marker-alt contact-icon"></i>
+                  Uttar Pradesh, India
+                </span>
               </div>
             </div>
-
-            <div class="form-column">
-              <form action="" class="contact__form grid">
-                <!-- <div class="contact__inputs grid"> -->
-                <div class="contact__content">
-                  <label for="" class="contact__label">Full Name</label>
-                  <input
-                    type="text"
-                    placeholder="Enter full name"
-                    class="contact__input"
-                    id="fullName"
-                    onkeyup="validateName()"
-                  />
-                  <span id="name-error" class="contact__subtitle"></span>
-                </div>
-                <div class="contact__content">
-                  <label for="" class="contact__label">Email</label>
-                  <input
-                    type="email"
-                    placeholder="Enter email address"
-                    class="contact__input"
-                    id="email_id"
-                    onkeyup="validateEmail()"
-                  />
-                  <span id="email-error" class="contact__subtitle"></span>
-                </div>
-                <!-- </div> -->
-                <div class="contact__content">
-                  <label for="" class="contact__label">Subject</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    placeholder="Enter a subject line"
-                    class="contact__input"
-                  />
-                </div>
-                <div class="contact__content">
-                  <label for="" class="contact__label">Message</label>
-                  <textarea
-                    name=""
-                    cols="0"
-                    rows="7"
-                    placeholder="Enter your message"
-                    class="contact__input"
-                    id="message"
-                    onkeyup="validateMessage()"
-                  ></textarea>
-                  <span id="message-error" class="contact__subtitle"></span>
-                </div>
-                <div>
-                  <a onclick="return SendMail()" class="button button--flex">
-                    Send Message
-                    <i class="fas fa-paper-plane button__icon"></i>
-                  </a>
-                </div>
-                <div>
-                  <a onclick="return SendMail()" class="button button--flex">
-                    Schedule Meeting
-                    <i class="fas fa-person"></i>
-                  </a>
-                </div>
-              </form>
-            </div>
           </div>
-        </center>
+        </div>
+
+        <div class="form-column">
+          <form
+            action="https://formsubmit.co/tusharbrisingr9802@gmail.com"
+            method="POST"
+            class="contact__form grid"
+          >
+            <!-- Hidden Configurations -->
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="box" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://tushar-9802.github.io/Portfolio/"
+            />
+
+            <div class="contact__content">
+              <label class="contact__label">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter full name"
+                class="contact__input"
+                id="fullName"
+                onkeyup="validateName()"
+                required
+              />
+              <span id="name-error" class="contact__subtitle"></span>
+            </div>
+
+            <div class="contact__content">
+              <label class="contact__label">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter email address"
+                class="contact__input"
+                id="email_id"
+                onkeyup="validateEmail()"
+                required
+              />
+              <span id="email-error" class="contact__subtitle"></span>
+            </div>
+
+            <div class="contact__content">
+              <label class="contact__label">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Enter a subject line"
+                class="contact__input"
+                id="subject"
+                required
+              />
+            </div>
+
+            <div class="contact__content">
+              <label class="contact__label">Message</label>
+              <textarea
+                name="message"
+                cols="0"
+                rows="7"
+                placeholder="Enter your message"
+                class="contact__input"
+                id="message"
+                onkeyup="validateMessage()"
+                required
+              ></textarea>
+              <span id="message-error" class="contact__subtitle"></span>
+            </div>
+
+            <div>
+              <button type="submit" class="button button--flex">
+                Send Message
+                <i class="fas fa-paper-plane button__icon"></i>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </section>
+    </center>
+  </div>
+</section>
   <script src="script.js"></script>
   </body>
 </html>
