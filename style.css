@@ -55,24 +55,37 @@ body {
       }
 
       .image-column {
-        flex: 1;
-        text-align: center;
-        padding-right: 200px;
-      }
+  flex: 1;
+  text-align: center;
+  padding-right: 200px;
+}
 
-      .circular-image {
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto;
-      }
+.circular-image {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
 
-      .circular-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+.circular-image:hover {
+  transform: scale(1.2); /* Grows the entire circle */
+  filter: none;
+}
+
+.circular-image img {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.circular-image:hover img{
+filter: grayscale(0%);
+}
+
 
       .fixed-icons {
         position: fixed;
