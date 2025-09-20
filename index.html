@@ -17,7 +17,7 @@
       crossorigin="anonymous"
     />
     <title>Your Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="final_responsive_refined.css">
   </head>
 
   <body>
@@ -57,7 +57,17 @@
           <br><br>
           In my free time, I like to write as a hobby, with an original fantasy on the horizon soon.
         </p>
-        <a href="#contact" class="contact-button"> Contact Me </a>
+        <div class="action-buttons">
+  <a href="#contact" class="resume-button contact">
+    <i class="fas fa-envelope"></i> Contact Me
+  </a>
+  <a href="files/Resume.pdf" target="_blank" class="resume-button view">
+    <i class="fas fa-file-pdf"></i> View Resume
+  </a>
+  <a href="files/Resume.pdf" download class="resume-button download">
+    <i class="fas fa-download"></i> Download Resume
+  </a>
+</div>
       </div>
 
       <div class="image-column">
@@ -78,7 +88,7 @@
       <img src="images/link.png" alt="LinkedIn Writeup" class="about-image" />
     </div>
     <div class="text-column">
-      <h2>About Me</h2>
+      <h1>About Me</h1>
       <h3>Introduction</h3>
       <p>
         Software Developer with Python, C++ and SQL skills. Passionate about Data Analytics, currently building ML projects and solving problems on coding platforms. I believe in learning by doing and storytelling with data.
@@ -87,7 +97,7 @@
     <a href="https://github.com/Tushar-9802" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     <a href="https://leetcode.com/u/Tushar9802/" target="_blank"><i class="fas fa-code"></i> Leetcode</a>
     <a href="https://www.hackerrank.com/profile/CSDS_22b1541094" target="_blank"><i class="fab fa-hackerrank"></i> HackerRank</a>
-    <a href=https://www.kaggle.com/tusharjaju" target="_blank"><i class="fab fa-kaggle"></i> Kaggle</a>
+    <a href="https://www.kaggle.com/tusharjaju" target="_blank"><i class="fab fa-kaggle"></i> Kaggle</a>
     </div>
       <div class="s">
         <div class="stat-box">
@@ -104,7 +114,7 @@
 </section>
 
     <section id="Skills">
-        <h1>Skills</h1>
+        <h1 style="margin-bottom: 30px;">Skills</h1>
       <div class="container">
         <div class="skill">
         <div class="skills1">
@@ -188,20 +198,27 @@
       </div>
   </section>  
 <section id="projects">
-  <h1>Projects</h1>
-  <div class="container">
+  <h1 style="font-size: 2.2em; margin-bottom: 30px;">Projects</h1>
+  <div class = "projects-container">
+    <p>Here are some of the projects I have worked on, showcasing my skills in Python, Data Analysis, and Machine Learning.</p>
+  
+    <!-- wrapper for the cards only -->
+  <div class="cards-container">
 
     <div class="project-card">
       <h3>Youtube Transcript Summarizer</h3>
       <p>
-        ML project using Huggingface Transformers to summarize YouTube transcripts automatically.
+        ML project using Huggingface Transformers to summarize YouTube transcripts automatically.<br>
+        <i>Note:</i> Project is not deployed online, it is meant to be run locally.
       </p>
+      <b>Python, Huggingface Transformers, Machine Learning, NLP, Streamlit</b>
       <div class="tech-stack">
         <i class="fab fa-python" title="Python"></i>
         <i class="fas fa-robot" title="Machine Learning"></i>
         <i class="fas fa-brain" title="Huggingface Transformers"></i>
       </div>
       <a href="https://github.com/Tushar-9802/YouTube-Transcript-Summarizer" target="_blank">View Code</a>
+      <a href="https://youtube-transcript-summarizer-ml.streamlit.app/" target="_blank">View GUI</a>
     </div>
 
     <div class="project-card">
@@ -209,6 +226,8 @@
       <p>
         Detailed, comprehensive and conclusive analyses of Layoffs between 2020-2025. Dataset sourced from Kaggle.
       </p>
+      <p>Displayed it interactively using Streamlit Dashboard</p>
+      <b>Python, Pandas, Plotly, Streamlit, EDA</b>
       <div class="tech-stack">
         <i class="fab fa-python" title="Python"></i>
         <i class="fas fa-chart-line" title="Plotly"></i>
@@ -216,13 +235,17 @@
         <i class="fas fa-stream" title="Streamlit"></i>
       </div>
       <a href="https://github.com/Tushar-9802/Tech-Layoffs-Analysis" target="_blank">View Code</a>
+      <a href="https://tushar9802-tech-layoffs-analysis.streamlit.app/" target="_blank">Live Dashboard</a>
+      <a href="https://www.kaggle.com/code/tusharjaju/tech-layoffs-analysis-2020-2025" target="_blank">Detailed EDA</a>
     </div>
 
     <div class="project-card">
       <h3>Basic Weather Dashboard</h3>
       <p>
-        Responsive dashboard that fetches live weather from OpenWeatherMap API and displays via cards.
+        Responsive dashboard that fetches live weather from OpenWeatherMap API and displays via cards. Basic usage of JS, API calls, HTML and CSS.
       </p>
+      <p>Used for basic exploration of Front-End Development.</p>
+      <b>JavaScript, CSS, HTML, API</b>
       <div class="tech-stack">
         <i class="fab fa-js" title="JavaScript"></i>
         <i class="fab fa-html5" title="HTML5"></i>
@@ -231,23 +254,10 @@
       </div>
       <a href="https://github.com/Tushar-9802/Weather-Dashboard" target="_blank">View Code</a>
     </div>
-
-    <div class="project-card" style="grid-column: 2;">
-
-      <h3>Analysis & Flask API</h3>
-      <p>
-        Lightweight Flask API that serves synthetically generated e-commerce data with precomputed analytics.
-      </p>
-      <div class="tech-stack">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fas fa-database" title="Pandas/Numpy"></i>
-        <i class="fas fa-server" title="Flask"></i>
-      </div>
-      <a href="https://github.com/Tushar-9802/E-Commer-Order-Analytics-Enuke-" target="_blank">View Code</a>
-    </div>
-
+  </div>
   </div>
 </section>
+
 <section id="certifications">
   <h1 style="font-size: 2.2em; margin-bottom: 30px;">Certifications</h1>
 
@@ -309,7 +319,7 @@
   <div class="m">
     <center>
       <div class="n">
-        <h2 class="section">Contact Me</h2>
+        <h1 class="section">Contact Me</h1>
         <span class="subtitle">Get in Touch</span>
       </div>
 
@@ -431,6 +441,9 @@
     </center>
   </div>
 </section>
+<div id="theme-toggle">
+  <i id="theme-icon" class="fa-solid fa-moon"></i>
+</div>
   <script src="script.js"></script>
   </body>
 </html>

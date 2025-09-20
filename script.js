@@ -15,6 +15,37 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+const toggle = document.getElementById('theme-toggle');
+const icon = document.getElementById('theme-icon');
+const darkModeKey = 'dark-mode-enabled';
+
+// ✅ Apply saved theme on load
+if (localStorage.getItem(darkModeKey) === 'true') {
+  document.body.classList.add('dark-mode');
+  icon.classList.remove('fa-moon');
+  icon.classList.add('fa-sun');
+} else {
+  icon.classList.remove('fa-sun');
+  icon.classList.add('fa-moon');
+}
+
+// ✅ Toggle handler
+toggle.onclick = () => {
+  document.body.classList.toggle('dark-mode');
+  const darkModeOn = document.body.classList.contains('dark-mode');
+  localStorage.setItem(darkModeKey, darkModeOn);
+
+  if (darkModeOn) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun'); // 🌞 show sun
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon'); // 🌙 show moon
+  }
+};
+
+
+
 
 function validateName() {
   const name = document.getElementById("fullName").value.trim();
