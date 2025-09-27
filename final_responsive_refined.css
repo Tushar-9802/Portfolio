@@ -1137,36 +1137,55 @@ p {
 /* Large screens (1200px and above) */
 @media (min-width: 1201px) {
   .container {
-    max-width: 1400px;  /* Increased from 1200px */
+    max-width: 1400px;
     margin: 0 auto;
-    padding-top: 100px;  /* Increased gap from nav bar */
+    padding-top: 100px;
   }
 }
 
 /* Medium-large screens */
 @media (max-width: 1200px) {
   .text-column, .image-column {
-    padding: 10px;  /* Increased padding */
+    padding: 10px;
     text-align: justify;
-    width: 100%;    /* Wider columns */
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Prevent text-column from overlapping fixed icons */
+  .text-column {
+    margin-left: 170px; /* matches .fixed-icons a margin-left + icon size */
   }
 
   #about-me .container,
   #Skills .container,
   #projects .container,
   #contact .container {
-    padding: 30px;  /* Increased padding */
-    gap: 50px;     /* Increased gap */
-    margin-top: 80px;  /* More space from nav */
+    padding: 30px;
+    gap: 50px;
+    margin-top: 80px;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 
 /* Tablets and smaller laptops */
 @media (max-width: 1024px) {
   .text-column, .image-column {
-    padding: 30px;  /* Increased padding */
+    padding: 30px;
     text-align: justify;
-    width: 85%;    /* Wider columns */
+    width: 85%;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Reduce left margin for text-column as icons move left */
+  .text-column {
+    margin-left: 60px;
   }
 
   .circular-image {
@@ -1188,10 +1207,16 @@ p {
   .project-card {
     width: 280px;
     min-height: 350px;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .certification-container {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 }
 
@@ -1210,15 +1235,22 @@ p {
   .container {
     flex-direction: column;
     height: auto;
-    margin-top: 100px;  /* Increased gap from nav */
-    padding: 20px;      /* Increased padding */
-    gap: 40px;         /* Increased gap */
+    margin-top: 100px;
+    padding: 20px;
+    gap: 40px;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .text-column, .image-column {
     padding: 20px;
     text-align: center;
-    width: 95%;    /* Wider columns for mobile */
+    width: 95%;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin-left: 0; /* Remove margin for mobile */
   }
 
   .circular-image {
@@ -1246,6 +1278,9 @@ p {
   #about-me .container {
     flex-direction: column;
     gap: 30px;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   #Skills .text-column {
@@ -1254,22 +1289,32 @@ p {
 
   .cards-container {
     justify-content: center;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .project-card {
     width: 100%;
     max-width: 400px;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   #contact .container {
     flex-direction: column;
     height: auto;
     gap: 40px;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .contact__form {
     width: 100%;
     max-width: 500px;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 }
 
@@ -1293,30 +1338,48 @@ p {
   #Skills .text-column {
     grid-template-columns: 1fr;
     gap: 20px;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .project-card {
     min-height: 320px;
     padding: 20px;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .certification-container {
     grid-template-columns: 1fr;
     gap: 30px;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .cert-card {
     padding: 15px;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .action-buttons {
     flex-direction: column;
     gap: 15px;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .resume-button {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 
@@ -1343,6 +1406,11 @@ p {
   .fixed-icons a {
     padding: 5px 8px;
   }
+}
+
+/* Prevent horizontal scroll on body */
+body {
+  overflow-x: hidden;
 }
 /* Apply smooth transition to body and main sections */
 body,
