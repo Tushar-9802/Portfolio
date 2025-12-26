@@ -203,27 +203,28 @@
   <div class="cards-container">
 
     <div class="project-card">
-      <h3>Youtube Transcript Summarizer</h3>
+      <h3>YouTube Transcript Summarizer</h3>
       <p>
-        ML project using Huggingface Transformers to summarize YouTube transcripts automatically.<br>
-        <i>Note:</i> Project is not deployed online, it is meant to be run locally.
+        Domain-adaptive video summarization pipeline using Mistral-7B with LoRA fine-tuning. Optimized for 90-minute technical lectures on 8GB VRAM through 4-bit quantization and streaming chunk processing.
       </p>
-      <b>Python, Huggingface Transformers, Machine Learning, NLP, Streamlit</b>
+      <p>Researched cross-modal transfer learning failure modes: domain-specific adapters trained on 25,000 papers degraded video performance 14-50% (p<0.001), confirming modality mismatch dominates domain similarity. Dual-backend Whisper transcription with anti-hallucination ASR parameters achieves 95% content preservation.</p>
+      <b>Python, PyTorch, Transformers, PEFT, LoRA, Whisper, Streamlit</b>
       <div class="tech-stack">
         <i class="fab fa-python" title="Python"></i>
-        <i class="fas fa-robot" title="Machine Learning"></i>
-        <i class="fas fa-brain" title="Huggingface Transformers"></i>
+        <i class="fas fa-brain" title="Transformers"></i>
+        <i class="fas fa-microchip" title="4-bit Quantization"></i>
+        <i class="fas fa-file-audio" title="Whisper ASR"></i>
       </div>
       <a href="https://github.com/Tushar-9802/YouTube-Transcript-Summarizer" target="_blank">View Code</a>
     </div>
-
+    
     <div class="project-card">
-      <h3>Technical Layoffs Analysis</h3>
+      <h3>Tech Layoffs Analysis (2020-2025)</h3>
       <p>
-        Detailed, comprehensive and conclusive analyses of Layoffs between 2020-2025. Dataset sourced from Kaggle.
+        Interactive analytics dashboard exploring global tech sector layoffs with custom-engineered metrics. Analyzes 2000+ events across 3 industries using 7 derived indicators: Layoff Efficiency Score, Instability Index, and Severity metrics.
       </p>
-      <p>Displayed it interactively using Streamlit Dashboard</p>
-      <b>Python, Pandas, Plotly, Streamlit, EDA</b>
+      <p>Built quarterly trend analysis with YoY/QoQ change tracking, company-level deep-dive with industry share visualization, and normalized per-company averages for fair cross-scale comparison. Dataset sourced from Kaggle's verified layoff trackers (Bloomberg, TechCrunch, NYT).</p>
+      <b>Python, Pandas, Plotly, Streamlit, Statistical Analysis</b>
       <div class="tech-stack">
         <i class="fab fa-python" title="Python"></i>
         <i class="fas fa-chart-line" title="Plotly"></i>
@@ -234,14 +235,14 @@
       <a href="https://tushar9802-tech-layoffs-analysis.streamlit.app/" target="_blank">Live Dashboard</a>
       <a href="https://www.kaggle.com/code/tusharjaju/tech-layoffs-analysis-2020-2025" target="_blank">Detailed EDA</a>
     </div>
-
+    
     <div class="project-card">
       <h3>DPDP Act Compliance Dashboard</h3>
       <p>
-        Production-ready legal-tech platform automating compliance assessment for India's Digital Personal Data Protection Act 2023. Processes 50+ regulatory requirements with 480x faster analysis than manual assessment (40 hours to 5 minutes).
+        Legal-tech automation platform for India's Digital Personal Data Protection Act 2023 compliance assessment. Processes 50+ regulatory requirements with 480x faster analysis than manual methods (40 hours → 5 minutes).
       </p>
-      <p>Built 9-table relational database, PDF extraction pipeline achieving 95% accuracy, and 15-question assessment engine generating Excel reports with penalty exposure analysis (Rs. 10 lakh to Rs. 250 crore). Targets 1000+ SMBs facing May 2027 deadline.</p>
-      <b>Python, Streamlit, SQLite, Plotly, PDF Processing</b>
+      <p>Engineered 9-table relational database, PDF extraction pipeline (95% accuracy), and 15-question assessment engine generating Excel reports with penalty exposure analysis (₹10L to ₹250Cr). Targets 1000+ SMBs facing May 2027 deadline.</p>
+      <b>Python, Streamlit, SQLite, Plotly, PDF Processing, Regulatory Tech</b>
       <div class="tech-stack">
         <i class="fab fa-python" title="Python"></i>
         <i class="fas fa-database" title="SQLite"></i>
