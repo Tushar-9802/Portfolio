@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior:smooth;">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c8f8f" />
+    <meta
+      name="description"
+      content="Tushar Jaju — engineering ML systems and the products around them. On-device LLMs, clinical AI, recipe generation, compliance tooling, and data products."
+    />
+    <meta property="og:title" content="Tushar Jaju" />
+    <meta
+      property="og:description"
+      content="ML systems and shipped products — on-device LLMs, clinical AI, generative pipelines, data tools."
+    />
+    <meta property="og:type" content="website" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c8f8f'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Poppins,sans-serif' font-weight='700' font-size='32' fill='white'%3ETJ%3C/text%3E%3C/svg%3E"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -15,468 +31,680 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
       integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <title>Your Portfolio</title>
-    <link rel="stylesheet" href="final_responsive_refined.css">
+
+    <title>Tushar Jaju — Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Lenis: smooth-scroll wheel + touch interpolation. Same library Sai
+         Aryan Goswami's portfolio uses. defer ensures it parses before our
+         own script.js, which checks for window.Lenis before init. -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
   </head>
 
   <body>
-    <div class="fixed-icons">
-      <a href="#" aria-label="Home"><i class="fas fa-home"></i></a>
-      <a
-        href="https://www.linkedin.com/in/tushar-jaju-240b501a6/"
-        aria-label="About"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <a href="https://github.com/Tushar-9802" aria-label="Portfolio"
-        ><i class="fab fa-github"></i
-      ></a>
-      <a href="mailto:tusharbrisingr9802@gmail.com" aria-label="Contact"
-        ><i class="fas fa-envelope"></i
-      ></a>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav class="n">
-      <a href="#home">Home</a>
-      <a href="#about-me">About</a>
-      <a href="#Skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href ="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="nav-brand" href="#home">TJ</a>
+      <ul class="nav-links">
+        <li><a href="#home" aria-label="Home"><i class="fa-solid fa-house nav-icon" aria-hidden="true"></i><span class="nav-label">Home</span></a></li>
+        <li><a href="#about" aria-label="About"><i class="fa-solid fa-user nav-icon" aria-hidden="true"></i><span class="nav-label">About</span></a></li>
+        <li><a href="#skills" aria-label="Skills"><i class="fa-solid fa-brain nav-icon" aria-hidden="true"></i><span class="nav-label">Skills</span></a></li>
+        <li><a href="#projects" aria-label="Projects"><i class="fa-solid fa-cubes nav-icon" aria-hidden="true"></i><span class="nav-label">Projects</span></a></li>
+        <li><a href="#experience" aria-label="Experience"><i class="fa-solid fa-briefcase nav-icon" aria-hidden="true"></i><span class="nav-label">Experience</span></a></li>
+        <li><a href="#contact" aria-label="Contact"><i class="fa-solid fa-envelope nav-icon" aria-hidden="true"></i><span class="nav-label">Contact</span></a></li>
+      </ul>
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <i id="theme-icon" class="fa-solid fa-moon" aria-hidden="true"></i>
+      </button>
     </nav>
 
-    <div class="container" id = "home">
-      <div class="text-column">
-        <h1>Hi, I am Tushar</h1>
-        <h3>Software Developer, Data Analyst, Python Enthusiast</h3>
-        <p>
-          Welcome to my Portfolio. I am an Engineer with a Bachelor's in
-          Computer Science Engineering, specializing in Data Science. I am proficient in Python syntax and nuances
-          and Data Analytics. Currently, I am learning Machine Learning as an avenue to expand my knowledge and skills
-          and working on a project based on Brain Tumor Classification for the same.
-          <br><br>
-          In my free time, I like to write as a hobby, with an original fantasy on the horizon soon.
-        </p>
-        <div class="action-buttons">
-  <a href="#contact" class="resume-button contact">
-    <i class="fas fa-envelope"></i> Contact Me
-  </a>
-  <a href="files/Resume.pdf" target="_blank" class="resume-button view">
-    <i class="fas fa-file-pdf"></i> View Resume
-  </a>
-</div>
-      </div>
-
-      <div class="image-column">
-        <div class="circular-image">
-          <img
-            src="WhatsApp Image 2025-08-04 at 06.14.29_6df65bed1.jpg"
-            alt="Your Name"
-          />
-        </div>
-      </div>
-    </div>
-  <section id="about-me">
-  <div class="container">
-    <div class="image-column">
-      <img src="images/leet.png" alt="Leetcode stats" class="about-image" />
-      <img src="images/hack.png" alt="HackerRank badges" class="about-image" />
-      <img src="images/github.png" alt="GitHub Projects" class="about-image" />
-      <img src="images/link.png" alt="LinkedIn Writeup" class="about-image" />
-    </div>
-    <div class="text-column">
-      <h1>About Me</h1>
-      <h3>Introduction</h3>
-      <p>
-        Software Developer with Python, C++ and SQL skills. Passionate about Data Analytics, currently building ML projects and solving problems on coding platforms. I believe in learning by doing and storytelling with data.
-      </p>
-      <div class="profile-links">
-    <a href="https://github.com/Tushar-9802" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-    <a href="https://leetcode.com/u/Tushar9802/" target="_blank"><i class="fas fa-code"></i> Leetcode</a>
-    <a href="https://www.hackerrank.com/profile/CSDS_22b1541094" target="_blank"><i class="fab fa-hackerrank"></i> HackerRank</a>
-    <a href="https://www.kaggle.com/tusharjaju" target="_blank"><i class="fab fa-kaggle"></i> Kaggle</a>
-    </div>
-      <div class="s">
-        <div class="stat-box">
-          <p>300+</p>
-          <h4>Coding Problems Solved</h4>
-        </div>
-        <div class="stat-box">
-          <p>5+</p>
-          <h4>Projects Completed</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="Skills">
-        <h1 style="margin-bottom: 30px;">Skills</h1>
-      <div class="container">
-        <div class="skill">
-        <div class="skills1">
-  <p>
-    Over the course of my academic and project-based journey, I have developed skills across several domains:
-  </p>
-  <h4>Programming & Scripting</h4>
-  <ul>
-    <li>Python (Advanced), C++ (Intermediate), SQL (Intermediate)</li>
-    <li>Familiar with Bash scripting & HTML/CSS</li>
-  </ul>
-
-  <h4>Data Science & Analysis</h4>
-  <ul>
-    <li>Pandas, NumPy, Matplotlib, Seaborn, Plotly, Streamlit</li>
-    <li>Exploratory Data Analysis, Dashboarding, KPI Creation</li>
-  </ul>
-
-  <h4>Machine Learning</h4>
-  <ul>
-    <li>U-Net for Medical Image Segmentation</li>
-    <li>Supervised Learning, Regression, Evaluation Metrics</li>
-  </ul>
-
-  <h4>Tools & Collaboration</h4>
-  <ul>
-    <li>Git/GitHub, VS Code, Jupyter Notebook, Google Colab</li>
-    <li>Clear documentation, technical writing, and MoMs</li>
-  </ul>
-</div>
-
-        </div>
-        <div class="skill">
-        <div class="text-column">
-
-  <div class="skill-group">
-    <h3>Python (Problem Solving)</h3>
-    <div class="skill-meter">
-      <div class="skill-progress-1"></div>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <h3>Data Analysis & EDA</h3>
-    <div class="skill-meter">
-      <div class="skill-progress-3"></div>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <h3>Machine Learning</h3>
-    <div class="skill-meter">
-      <div class="skill-progress-5"></div>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <h3>SQL & Data Querying</h3>
-    <div class="skill-meter">
-      <div class="skill-progress-4"></div>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <h3>Technical Communication</h3>
-    <div class="skill-meter">
-      <div class="skill-progress"></div>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <h3>Git & Collaboration</h3>
-    <div class="skill-meter">
-      <div class="skill-progress-6"></div>
-    </div>
-  </div>
-
-  </div> <!-- end of text-column -->
-  </div>
-        </div>
-      </div>
-  </section>  
-<section id="projects">
-  <h1 style="font-size: 2.2em; margin-bottom: 30px;">Projects</h1>
-  <div class = "projects-container">
-    <p>Here are some of the projects I have worked on, showcasing my skills in Python, Data Analysis, and Machine Learning.</p>
-  
-    <!-- wrapper for the cards only -->
-  <div class="cards-container">
-
-    <div class="project-card">
-      <h3>YouTube Transcript Summarizer</h3>
-      <p>
-        Domain-adaptive video summarization pipeline using Mistral-7B with LoRA fine-tuning. Optimized for 90-minute technical lectures on 8GB VRAM through 4-bit quantization and streaming chunk processing.
-      </p>
-      <p>Researched cross-modal transfer learning failure modes: domain-specific adapters trained on 25,000 papers degraded video performance 14-50% (p<0.001), confirming modality mismatch dominates domain similarity. Dual-backend Whisper transcription with anti-hallucination ASR parameters achieves 95% content preservation.</p>
-      <b>Python, PyTorch, Transformers, PEFT, LoRA, Whisper, Streamlit</b>
-      <div class="tech-stack">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fas fa-brain" title="Transformers"></i>
-        <i class="fas fa-microchip" title="4-bit Quantization"></i>
-        <i class="fas fa-file-audio" title="Whisper ASR"></i>
-      </div>
-      <a href="https://github.com/Tushar-9802/YouTube-Transcript-Summarizer" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-    </div>
-    <div class="project-card">
-      <h3>Bawarchi - Role-Aware Recipe Generation</h3>
-      <p>
-        Multimodal AI system combining computer vision and NLP for cuisine-aware recipe generation. Three-model pipeline: YOLOv8m detection (66.51% mAP, 124 classes), PMI + embedding substitution (85% precision), and Llama 3.2 3B fine-tuning (74.1% accuracy on 335K recipes).
-      </p>
-      <p>
-        Pioneered role-aware reasoning for ingredient interchangeability across cuisines—same ingredients generate tacos (Mexican) or roti wrap (Indian) based on cultural context. Manually curated 1K role-based examples and quality-filtered 43K synthetic samples (54% acceptance). Published 68 MB training dataset with cuisine-specific PMI matrices and 202 manual Indian spice annotations from Mendeley.
-      </p>
-      <b>PyTorch, Transformers, PEFT (LoRA), YOLOv8, Sentence-Transformers, Streamlit, CUDA</b>
-      <div class="tech-stack">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fas fa-brain" title="Transformers"></i>
-        <i class="fas fa-camera" title="Computer Vision"></i>
-        <i class="fas fa-language" title="NLP"></i>
-        <i class="fas fa-microchip" title="Mixed Precision"></i>
-      </div>
-      <a href="https://github.com/Tushar-9802/bawarchi" target="_blank" class="btn-primary">
-        <i class="fab fa-github"></i> GitHub
+    <aside class="side-rail" aria-label="Profile links">
+      <a href="#home" aria-label="Home"><i class="fas fa-home" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/tushar-jaju-240b501a6/" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
       </a>
-      <a href="https://huggingface.co/Tushar9802/bawarchi-recipe-generator" target="_blank" class="btn-secondary">
-        <i class="fas fa-robot"></i> HuggingFace
+      <a href="https://github.com/Tushar-9802" aria-label="GitHub" target="_blank" rel="noopener">
+        <i class="fab fa-github" aria-hidden="true"></i>
       </a>
-      <a href="https://www.kaggle.com/datasets/tusharjaju/bawarchi-training-data" target="_blank" class="btn-tertiary">
-        <i class="fab fa-kaggle"></i> Kaggle
+      <a href="mailto:tusharbrisingr9802@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
       </a>
-    </div>
-    <div class="project-card">
-      <h3>DPDP Act Compliance Dashboard</h3>
-      <p>
-        Legal-tech automation platform for India's Digital Personal Data Protection Act 2023 compliance assessment. Processes 50+ regulatory requirements with 480x faster analysis than manual methods (40 hours → 5 minutes).
-      </p>
-      <p>Engineered 9-table relational database, PDF extraction pipeline (95% accuracy), and 15-question assessment engine generating Excel reports with penalty exposure analysis (₹10L to ₹250Cr). Targets 1000+ SMBs facing May 2027 deadline.</p>
-      <b>Python, Streamlit, SQLite, Plotly, PDF Processing, Regulatory Tech</b>
-      <div class="tech-stack">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fas fa-database" title="SQLite"></i>
-        <i class="fas fa-chart-line" title="Plotly"></i>
-        <i class="fas fa-file-pdf" title="PDF Processing"></i>
-        <i class="fas fa-shield-alt" title="Data Protection"></i>
-      </div>
-      <a href="https://github.com/Tushar-9802/DPDPA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-    </div>
-    <!-- <div class="project-card">
-      <h3>Tech Layoffs Analysis (2020-2025)</h3>
-      <p>
-        Interactive analytics dashboard exploring global tech sector layoffs with custom-engineered metrics. Analyzes 2000+ events across 3 industries using 7 derived indicators: Layoff Efficiency Score, Instability Index, and Severity metrics.
-      </p>
-      <p>Built quarterly trend analysis with YoY/QoQ change tracking, company-level deep-dive with industry share visualization, and normalized per-company averages for fair cross-scale comparison. Dataset sourced from Kaggle's verified layoff trackers (Bloomberg, TechCrunch, NYT).</p>
-      <b>Python, Pandas, Plotly, Streamlit, Statistical Analysis</b>
-      <div class="tech-stack">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fas fa-chart-line" title="Plotly"></i>
-        <i class="fas fa-table" title="Pandas"></i>
-        <i class="fas fa-stream" title="Streamlit"></i>
-      </div>
-      <a href="https://github.com/Tushar-9802/Tech-Layoffs-Analysis" target="_blank">View Code</a>
-      <a href="https://tushar9802-tech-layoffs-analysis.streamlit.app/" target="_blank">Live Dashboard</a>
-      <a href="https://www.kaggle.com/code/tusharjaju/tech-layoffs-analysis-2020-2025" target="_blank">Detailed EDA</a>
-    </div> -->
-    
-    
-  </div>
-  </div>
-</section>
+    </aside>
 
-<section id="certifications">
-  <h1 style="font-size: 2.2em; margin-bottom: 30px;">Certifications</h1>
+    <main id="main">
+      <!-- ============= HERO ============= -->
+      <section id="home" class="hero">
+        <!-- Atmospheric vertical text rail behind the content. CSS-only loop. -->
+        <div class="hero-rail" aria-hidden="true">
+          <div class="hero-rail-text">PYTORCH · TRANSFORMERS · LORA · UNSLOTH · WHISPER · GEMMA · MISTRAL · LLAMA · CACTUS · QUANTIZATION · ROUGE · BERTSCORE · OPLORA · EWC · CROSSCLR · PYTORCH · TRANSFORMERS · LORA · UNSLOTH · WHISPER · GEMMA · MISTRAL · LLAMA · CACTUS · QUANTIZATION · ROUGE · BERTSCORE · OPLORA · EWC · CROSSCLR ·</div>
+        </div>
 
-  <div class="certification-container">
-  <div class="cert-card">
-    <div class="cert-img-container">
-      <img src="images/sql.png" alt="HackerRank SQL Certificate" />
-      <div class="cert-hover-image" style="background-image: url('images/sql.png');"></div>
-    </div>
-    <h3>HackerRank SQL (Intermediate)</h3>
-    <p>Certification of SQL proficiency with hands-on problem solving.</p>
-    <a href="https://www.hackerrank.com/certificates/0f7bdf5a4055" target="_blank">Verify Certificate</a>
-  </div>
+        <div class="hero-grid">
+          <div class="hero-text">
+            <p class="eyebrow"><span class="dot"></span> Available for ML &amp; product roles</p>
+            <h1>Hi, I'm <span class="accent" data-shuffle="Tushar">Tushar</span>.</h1>
+            <p class="hero-cycler" data-cycler='["ML systems engineer","On-device LLM builder","Applied research, IMPACT 2025","Clinical AI for the field"]'>ML systems engineer</p>
+            <p class="lede">
+              I design <strong>ML systems</strong> and ship the <strong>products</strong> around them — from on-device LLMs and clinical AI to data tools that make policy actionable.
+            </p>
+            <p class="sub">
+              Computer Science Engineer (Data Science). Comfortable across the stack: from training loops and quantization to FastAPI, React, and the boring glue that makes a model useful.
+            </p>
+            <div class="action-buttons">
+              <a href="#projects" class="btn btn-primary">
+                <i class="fas fa-arrow-right" aria-hidden="true"></i> See projects
+              </a>
+              <a href="files/Resume_ML.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
+                <i class="fas fa-file-pdf" aria-hidden="true"></i> Resume
+              </a>
+            </div>
+          </div>
 
-  <div class="cert-card">
-    <div class="cert-img-container">
-      <img src="images/python.png" alt="HackerRank Python Certificate" />
-      <div class="cert-hover-image" style="background-image: url('images/python.png');"></div>
-    </div>
-    <h3>HackerRank Python</h3>
-    <p>Verified skills in knowledge of Python and its syntax to program efficiently.</p>
-    <a href="https://www.hackerrank.com/certificates/ef29c3044601" target="_blank">Verify Certificate</a>
-  </div>
+          <div class="hero-image">
+            <div class="avatar">
+              <img
+                src="WhatsApp Image 2025-08-04 at 06.14.29_6df65bed1.jpg"
+                alt="Portrait of Tushar Jaju"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <div class="cert-card">
-    <div class="cert-img-container">
-      <img src="images/all.png" alt="" />
-      <div class="cert-hover-image" style="background-image: url('images/all.png');"></div>
-    </div>
-    <h3>Advanced Learning Algorithms</h3>
-    <p>Learned about Deep Learning Fundamentals like Neural Networks and Decision Trees</p>
-    <a href="https://www.coursera.org/account/accomplishments/verify/TBQ0BBDSCE37" target="_blank">Verify Certificate</a>
-  </div>
+      <!-- ============= ABOUT ============= -->
+      <section id="about" class="section">
+        <div class="section-inner">
+        <div class="section-head">
+          <span class="section-eyebrow">01 &mdash; About</span>
+          <h2>About</h2>
+          <p class="section-sub">A short read on how I work and what I've built.</p>
+        </div>
 
-  <div class="cert-card">
-    <div class="cert-img-container">
-      <img src="images/cisco.png" alt="Cisco Python Certificate" />
-      <div class="cert-hover-image" style="background-image: url('images/cisco.png');"></div>
-    </div>
-    <h3>Cisco Python Essentials 1</h3>
-    <p>Basic to intermediate Python skills via Cisco Networking Academy.</p>
-    <a href="https://www.credly.com/badges/your-cisco-certificate-id" target="_blank">Verify Certificate</a>
-  </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I build at the intersection of <strong>research and shipping</strong>: fine-tuning small LLMs, fighting catastrophic forgetting, designing offline-first pipelines, and packaging it all into something a non-engineer can actually use.
+            </p>
+            <p>
+              Recent work spans clinical documentation (MedScribe), Hindi voice-to-form for ASHA workers (Sakhi), cuisine-aware recipe generation (Bawarchi), and a published method for cross-modal LoRA training (IMPACT 2025).
+            </p>
 
-  <div class="cert-card">
-    <div class="cert-img-container">
-      <img src="images/ibm.png" alt="IBM Data Science Certificate" />
-      <div class="cert-hover-image" style="background-image: url('images/ibm.png');"></div>
-    </div>
-    <h3>IBM Python and DA Certifications.</h3>
-    <p>Python, EDA, visualization, and project-based learning.</p>
-    <a href="https://www.coursera.org/user/3fede65d011d7359aa0b95327d2a4844" target="_blank">Verify Certifications</a>
-  </div>
-  <div class="cert-card">
-    <div class="cert-img-container">
-      <img src="images/stanford-ml.png" alt="Stanford Machine Learning Certificate" />
-      <div class="cert-hover-image" style="background-image: url('images/stanford-ml.png');"></div>
-    </div>
-    <h3>Stanford Machine Learning Specialization</h3>
-    <p>Supervised ML: Regression and Classification by Andrew Ng. DeepLearning.AI and Stanford University.</p>
-    <a href="https://coursera.org/verify/X39NBXF0HMQ0" target="_blank">Verify Certificate</a>
-  </div>
-</div>
-
-</section>
-
-    <section class="contact" id="contact">
-  <div class="m">
-    <center>
-      <div class="n">
-        <h1 class="section">Contact Me</h1>
-        <span class="subtitle">Get in Touch</span>
-      </div>
-
-      <div class="container">
-        <div class="contact__info">
-          <div class="text-column">
-            <div>
-              <h3 class="contact__title">Call Me</h3>
-              <span class="contact__subtitle">
-                <i class="fas fa-phone contact-icon"></i>
-                +91-9927280188
-              </span>
+            <div class="profile-links">
+              <a href="https://github.com/Tushar-9802" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              <a href="https://leetcode.com/u/Tushar9802/" target="_blank" rel="noopener"><i class="fas fa-code" aria-hidden="true"></i> LeetCode</a>
+              <a href="https://www.hackerrank.com/profile/CSDS_22b1541094" target="_blank" rel="noopener"><i class="fab fa-hackerrank" aria-hidden="true"></i> HackerRank</a>
+              <a href="https://www.kaggle.com/tusharjaju" target="_blank" rel="noopener"><i class="fab fa-kaggle" aria-hidden="true"></i> Kaggle</a>
+              <a href="https://huggingface.co/Tushar9802" target="_blank" rel="noopener"><i class="fas fa-robot" aria-hidden="true"></i> Hugging Face</a>
             </div>
 
-            <div class="contact__information">
-              <div>
-                <h3 class="contact__title">Email</h3>
-                <p>
-                  <a
-                    class="contact__subtitle"
-                    href="mailto:tusharbrisingr9802@gmail.com"
-                  >
-                    <i class="fas fa-envelope contact-icon"></i>
-                    tusharbrisingr9802@gmail.com
-                  </a>
-                </p>
+            <div class="stats">
+              <div class="stat-box">
+                <p class="stat-value">7</p>
+                <h4>ML &amp; data systems shipped</h4>
               </div>
+              <div class="stat-box">
+                <p class="stat-value">1</p>
+                <h4>Paper published (IMPACT 2025)</h4>
+              </div>
+              <div class="stat-box">
+                <p class="stat-value">300+</p>
+                <h4>Problems solved</h4>
+              </div>
+            </div>
+          </div>
 
-              <div>
-                <h3 class="contact__title">Location</h3>
-                <span class="contact__subtitle">
-                  <i class="fas fa-map-marker-alt contact-icon"></i>
-                  Uttar Pradesh, India
-                </span>
+          <div class="about-images">
+            <img src="images/leet.png" alt="LeetCode profile statistics" loading="lazy" />
+            <img src="images/hack.png" alt="HackerRank badges" loading="lazy" />
+            <img src="images/github.png" alt="GitHub project highlights" loading="lazy" />
+            <img src="images/link.png" alt="LinkedIn writeup" loading="lazy" />
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ============= SKILLS ============= -->
+      <section id="skills" class="section">
+        <div class="section-inner">
+        <div class="section-head">
+          <span class="section-eyebrow">02 &mdash; Skills</span>
+          <h2>Tech arsenal.</h2>
+          <p class="section-sub">Five shards. Run the script to load them.</p>
+        </div>
+
+        <!-- Interactive terminal: tap or press ↵ to "load" skill shards -->
+        <div class="skills-terminal-wrap">
+          <div class="terminal" data-skills-terminal tabindex="0" role="button" aria-label="Run reveal_skills.py to load tech arsenal">
+            <header class="terminal-bar">
+              <span class="terminal-dot terminal-dot--red"></span>
+              <span class="terminal-dot terminal-dot--yellow"></span>
+              <span class="terminal-dot terminal-dot--green"></span>
+              <span class="terminal-bar-title">~/arsenal &middot; zsh</span>
+            </header>
+            <div class="terminal-body">
+              <div class="terminal-prompt-line">
+                <span class="term-user">tushar</span><span class="term-at">@</span><span class="term-host">portfolio</span><span class="term-colon">:</span><span class="term-path">~/arsenal</span><span class="term-dollar">$</span>
+                <span class="term-cmd">python reveal_skills.py</span>
               </div>
+              <div class="terminal-comment" data-terminal-hint>
+                <span class="terminal-comment-hash">#</span>
+                <span>Press <span class="terminal-comment-key">&crarr; Enter</span> &nbsp;or click to reveal</span>
+                <span class="terminal-cursor"></span>
+              </div>
+              <div class="terminal-output" data-terminal-output></div>
             </div>
           </div>
         </div>
 
-        <div class="form-column">
+        <div class="skill-groups" data-skill-groups>
+          <div class="skill-group" data-shard="languages">
+            <h3><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
+            <ul class="chips">
+              <li>Python</li>
+              <li>C++</li>
+              <li>SQL</li>
+              <li>JavaScript</li>
+              <li>Bash</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-shard="ml_llms">
+            <h3><i class="fas fa-brain" aria-hidden="true"></i> ML &amp; LLMs</h3>
+            <ul class="chips">
+              <li>PyTorch</li>
+              <li>Transformers</li>
+              <li>PEFT / LoRA</li>
+              <li>BitsAndBytes</li>
+              <li>Unsloth</li>
+              <li>Whisper</li>
+              <li>YOLOv8</li>
+              <li>Quantization (4/8-bit)</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-shard="data">
+            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Data</h3>
+            <ul class="chips">
+              <li>Pandas</li>
+              <li>NumPy</li>
+              <li>Plotly</li>
+              <li>Matplotlib</li>
+              <li>Seaborn</li>
+              <li>SQLite</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-shard="build_deploy">
+            <h3><i class="fas fa-rocket" aria-hidden="true"></i> Build &amp; Deploy</h3>
+            <ul class="chips">
+              <li>FastAPI</li>
+              <li>Streamlit</li>
+              <li>Gradio</li>
+              <li>React</li>
+              <li>Vite</li>
+              <li>Hugging Face Hub</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-shard="workflow">
+            <h3><i class="fas fa-toolbox" aria-hidden="true"></i> Workflow</h3>
+            <ul class="chips">
+              <li>Git / GitHub</li>
+              <li>Jupyter</li>
+              <li>Colab</li>
+              <li>VS Code</li>
+              <li>WandB</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ============= PROJECTS (HORIZONTAL-SCROLL) ============= -->
+      <!-- Outer is 280vh tall; inner sticky pins to viewport while user scrolls,
+           and JS maps the scroll progress to translateX on the rail. Replaces
+           the old expandable tree — each card is always-open and content-rich. -->
+      <section id="projects" class="section-projects">
+        <div class="projects-sticky">
+
+          <!-- Background scrolling text — atmosphere across the top of the
+               section, visible *above* the cards rather than behind them. -->
+          <div class="projects-bg-text" aria-hidden="true">
+            <span>BUILD * SHIP * MEASURE * ITERATE * BUILD * SHIP * MEASURE * ITERATE * BUILD * SHIP * MEASURE * ITERATE * </span>
+          </div>
+
+          <div class="projects-rail" data-rail>
+
+            <!-- Intro card -->
+            <article class="project-card project-card--intro">
+              <span class="section-eyebrow">03 &mdash; Projects</span>
+              <h2>Selected work.</h2>
+              <p class="section-sub">Seven systems shipped — clinical AI, generative pipelines, data products. Scroll down to pan across.</p>
+              <p class="project-intro-hint" aria-hidden="true">
+                <i class="fas fa-arrow-right"></i> &nbsp; scroll
+              </p>
+            </article>
+
+            <!-- 01 · Sakhi · Clinical AI -->
+            <article class="project-card">
+              <header class="project-meta">
+                <span class="project-num">01</span>
+                <span class="project-branch">Clinical AI</span>
+              </header>
+              <h3 class="project-title">Sakhi</h3>
+              <p class="project-tag">ASHA voice-to-form &middot; Hindi</p>
+              <div class="project-body">
+                <p>
+                  Offline-first voice-to-form for India's 1M+ ASHA health workers. Hindi home-visit conversations become structured government forms with real-time referral decisions for maternal and child health.
+                </p>
+                <p>
+                  Dual deployment: <strong>health-center mode</strong> (Whisper ASR + Gemma 4 E4B function-calling, ~15s/visit) and <strong>field mode</strong> (on-device Gemma 4 E2B INT4 via Cactus SDK on Android, ~5min/visit). Six-layer anti-hallucination pipeline with clinical range validation. Fine-tuned on 1,154 synthetic ASHA conversations.
+                </p>
+                <ul class="project-metrics">
+                  <li><b>87%</b> end-to-end pass rate (synthetic Hindi audio)</li>
+                  <li><b>14/15</b> fine-tuned eval &middot; <b>15/15</b> base</li>
+                  <li>Gemma 4 Hackathon — Health, Ollama, Unsloth, Cactus tracks</li>
+                </ul>
+              </div>
+              <p class="project-tech">
+                <code>Python</code> <code>FastAPI</code> <code>Ollama</code> <code>Gemma 4</code> <code>Whisper</code> <code>React</code> <code>Capacitor</code> <code>Cactus SDK</code>
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/Tushar-9802/Sakhi" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              </div>
+            </article>
+
+            <!-- 02 · MedScribe · Clinical AI -->
+            <article class="project-card">
+              <header class="project-meta">
+                <span class="project-num">02</span>
+                <span class="project-branch">Clinical AI</span>
+              </header>
+              <h3 class="project-title">MedScribe</h3>
+              <p class="project-tag">Clinical SOAP notes &middot; LoRA</p>
+              <div class="project-body">
+                <p>
+                  AI clinical documentation that produces concise SOAP notes in physician shorthand — not verbose AI-scribe output that needs editing. Built for the Google MedGemma Impact Challenge 2026 (main + novel-task tracks).
+                </p>
+                <p>
+                  MedASR (105M Conformer) for speech, MedGemma 1.5 4B with a 4.2M-parameter LoRA for note generation. Six clinical intelligence tools: billable diagnosis extraction, completeness checks, differential ranking, drug interactions, intake analysis. Fully offline on 16GB VRAM.
+                </p>
+                <ul class="project-metrics">
+                  <li><b>16 &rarr; 5 min</b> per encounter — ~1,100 extra patient visits/year per physician</li>
+                  <li><b>90/100</b> quality &middot; <b>0%</b> hallucination &middot; <b>46%</b> shorter notes</li>
+                  <li>LoRA fine-tuned on 712 curated samples for <b>$1.28</b></li>
+                </ul>
+              </div>
+              <p class="project-tech">
+                <code>Python</code> <code>MedGemma</code> <code>LoRA</code> <code>4-bit quantization</code> <code>Gradio</code> <code>Conformer ASR</code>
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/Tushar-9802/MedScribe" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              </div>
+            </article>
+
+            <!-- 03 · Bawarchi · Generative AI -->
+            <article class="project-card">
+              <header class="project-meta">
+                <span class="project-num">03</span>
+                <span class="project-branch">Generative AI</span>
+              </header>
+              <h3 class="project-title">Bawarchi</h3>
+              <p class="project-tag">Role-aware recipe generation</p>
+              <div class="project-body">
+                <p>
+                  Multimodal recipe generation pipeline: vision detects ingredients, embeddings + PMI suggest cuisine-appropriate substitutions, and a fine-tuned LLM writes the recipe. Same ingredients yield tacos (Mexican) or roti wraps (Indian) depending on cultural context.
+                </p>
+                <ul class="project-metrics">
+                  <li><b>YOLOv8m</b> ingredient detection — 66.51% mAP across 124 classes</li>
+                  <li><b>PMI + embeddings</b> substitution — 85% precision</li>
+                  <li><b>Llama 3.2 3B</b> fine-tuned on 335K recipes — 74.1% accuracy</li>
+                  <li>1K curated role-based examples; 43K filtered synthetic (54% accept)</li>
+                </ul>
+              </div>
+              <p class="project-tech">
+                <code>PyTorch</code> <code>Transformers</code> <code>PEFT</code> <code>YOLOv8</code> <code>Sentence-Transformers</code> <code>Streamlit</code> <code>CUDA</code>
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/Tushar-9802/Bawarchi" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="https://huggingface.co/Tushar9802/bawarchi-recipe-generator" target="_blank" rel="noopener"><i class="fas fa-robot" aria-hidden="true"></i> HF Model</a>
+                <a href="https://www.kaggle.com/datasets/tusharjaju/bawarchi-training-data" target="_blank" rel="noopener"><i class="fab fa-kaggle" aria-hidden="true"></i> Dataset</a>
+              </div>
+            </article>
+
+            <!-- 04 · YouTube Transcript Summariser · Generative AI · IMPACT 2025 -->
+            <article class="project-card project-card--featured">
+              <header class="project-meta">
+                <span class="project-num">04</span>
+                <span class="project-branch">Generative AI &middot; IMPACT 2025</span>
+              </header>
+              <h3 class="project-title">YouTube Transcript Summariser</h3>
+              <p class="project-tag">Cross-modal LoRA &middot; published</p>
+              <div class="project-body">
+                <p>
+                  Domain-adaptive summarization for 90-minute technical lectures: Mistral-7B + LoRA, 4-bit quantization, streaming chunk processing — fits on a single 8GB GPU.
+                </p>
+                <p>
+                  Published as <strong>"Cross-Modal Transfer Learning in Domain-Adaptive Video Summarization"</strong> (IMPACT 2025, Springer, Dec 6 2025) — the first work to quantify that LoRA adapters trained on academic papers degrade video summarisation by 14–50% (p&lt;0.001). Hybrid Dataset Summariser is the follow-up that fixes it.
+                </p>
+                <ul class="project-metrics">
+                  <li>Published — <b>IMPACT 2025 (Springer)</b>, Dec 6 2025</li>
+                  <li>Cross-modal degradation documented: <b>14–50%</b> ROUGE drop, p&lt;0.001</li>
+                  <li>Whisper anti-hallucination ASR preserves <b>~95%</b> of content</li>
+                </ul>
+              </div>
+              <p class="project-tech">
+                <code>Python</code> <code>PyTorch</code> <code>Transformers</code> <code>PEFT</code> <code>Whisper</code> <code>Streamlit</code>
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/Tushar-9802/YouTube-Transcript-Summarizer" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              </div>
+            </article>
+
+            <!-- 05 · Hybrid Dataset Summariser · Generative AI -->
+            <article class="project-card">
+              <header class="project-meta">
+                <span class="project-num">05</span>
+                <span class="project-branch">Generative AI</span>
+              </header>
+              <h3 class="project-title">Hybrid Dataset Summariser</h3>
+              <p class="project-tag">Three-phase curriculum &middot; follow-up to IMPACT</p>
+              <div class="project-body">
+                <p>
+                  Solves the catastrophic forgetting documented in IMPACT 2025. Three-phase curriculum on Mistral-7B: <strong>P1</strong> LoRA+ asymmetric LRs on papers, <strong>P2</strong> OPLoRA + EWC mixed modalities, <strong>P3</strong> CrossCLR contrastive alignment for video.
+                </p>
+                <p>
+                  Curriculum phasing alone delivers ~80% of the gain over vanilla LoRA. OPLoRA preserves semantic quality (BERTScore +45%). All improvements significant at p&lt;0.005.
+                </p>
+                <ul class="project-metrics">
+                  <li><b>Video ROUGE-1: 0.417</b> — +58% baseline, vs 0.272 IMPACT naive</li>
+                  <li><b>Video ROUGE-2: 0.119</b> — +272% vs baseline</li>
+                  <li>Forgetting held at <b>14.1%</b> vs 31.4% IMPACT</li>
+                  <li>Best ablation (no EWC): R-1: <b>0.438</b>, R-2: <b>0.137</b></li>
+                </ul>
+              </div>
+              <p class="project-tech">
+                <code>Mistral-7B</code> <code>QLoRA</code> <code>NF4</code> <code>OPLoRA</code> <code>EWC</code> <code>CrossCLR</code> <code>WandB</code>
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/Tushar-9802/Hybrid-Dataset-Summariser" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              </div>
+            </article>
+
+            <!-- 06 · DPDPA Compliance · Data Products -->
+            <article class="project-card">
+              <header class="project-meta">
+                <span class="project-num">06</span>
+                <span class="project-branch">Data Products</span>
+              </header>
+              <h3 class="project-title">DPDPA Compliance</h3>
+              <p class="project-tag">RegTech &middot; India DPDP Act</p>
+              <div class="project-body">
+                <p>
+                  Legal-tech automation for India's Digital Personal Data Protection Act, 2023. 50+ regulatory requirements processed at 480&times; the manual baseline (40 hours &rarr; 5 minutes). Targets the 1,000+ SMBs facing the May 2027 compliance deadline.
+                </p>
+                <ul class="project-metrics">
+                  <li>9-table relational database — requirements + assessments</li>
+                  <li>PDF extraction pipeline at <b>~95%</b> accuracy</li>
+                  <li>15-question assessment engine with Excel reports</li>
+                  <li>Penalty exposure analysis: &#8377;10L &rarr; &#8377;250Cr</li>
+                </ul>
+              </div>
+              <p class="project-tech">
+                <code>Python</code> <code>Streamlit</code> <code>SQLite</code> <code>Plotly</code> <code>PDF Processing</code>
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/Tushar-9802/DPDPA" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              </div>
+            </article>
+
+            <!-- 07 · Tech Layoffs Dashboard · Data Products -->
+            <article class="project-card">
+              <header class="project-meta">
+                <span class="project-num">07</span>
+                <span class="project-branch">Data Products</span>
+              </header>
+              <h3 class="project-title">Tech Layoffs Dashboard</h3>
+              <p class="project-tag">2020&ndash;2025 &middot; custom metrics</p>
+              <div class="project-body">
+                <p>
+                  Interactive analytics dashboard exploring global tech-sector layoffs with six custom metrics: Layoff Efficiency Score, Instability Score, Severity Index, Location Fragility, Industry Survivability, Bounceback Potential.
+                </p>
+                <p>
+                  Quarterly trend analysis with YoY/QoQ tracking, company-level deep-dives, normalized per-company averages for fair cross-scale comparison. Sourced from verified Kaggle layoff trackers (Bloomberg, TechCrunch, NYT).
+                </p>
+              </div>
+              <p class="project-tech">
+                <code>Python</code> <code>Pandas</code> <code>Plotly</code> <code>Streamlit</code> <code>Jupyter</code>
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/Tushar-9802/Tech-Layoffs-Analysis" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="https://tushar9802-tech-layoffs-analysis.streamlit.app/" target="_blank" rel="noopener"><i class="fas fa-chart-line" aria-hidden="true"></i> Live</a>
+                <a href="https://www.kaggle.com/code/tusharjaju/tech-layoffs-analysis-2020-2025" target="_blank" rel="noopener"><i class="fab fa-kaggle" aria-hidden="true"></i> EDA</a>
+              </div>
+            </article>
+
+            <!-- End-of-rail spacer for visual breathing -->
+            <div class="project-card project-card--end" aria-hidden="true">
+              <p class="project-end-text">
+                <i class="fas fa-circle-check"></i> &nbsp;end of rail.<br />
+                Reach out below.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============= EXPERIENCE ============= -->
+      <!-- Vertical scroll-jacking, mirror of the projects pattern. Section is
+           240vh tall; sticky inner pins to viewport. Header stays fixed at
+           top; the rail (timeline + coursework) translates Y as scroll
+           progresses, so the timeline reels upward through the viewport. -->
+      <section id="experience" class="section-experience">
+        <div class="experience-sticky">
+          <div class="experience-header">
+            <span class="section-eyebrow">04 &mdash; Experience</span>
+            <h2>Experience</h2>
+            <p class="section-sub">Where the work has been put to use — and the research that shaped it.</p>
+          </div>
+          <div class="experience-viewport">
+            <div class="experience-rail" data-exp-rail>
+
+        <ol class="timeline" role="list">
+
+          <!-- Cognavi -->
+          <li class="timeline-entry timeline-entry--current">
+            <div class="timeline-date">
+              <span class="timeline-date-from">Mar 2026</span>
+              <span class="timeline-date-arrow" aria-hidden="true">&rarr;</span>
+              <span class="timeline-date-to">present</span>
+            </div>
+            <article class="timeline-card">
+              <header class="timeline-card-head">
+                <span class="timeline-type timeline-type--role">Role</span>
+                <h3 class="timeline-role">Intern, Systems Development</h3>
+                <p class="timeline-org">Cognavi</p>
+              </header>
+              <ul class="timeline-points">
+                <li>Engineered Python scripts for automatic data extraction + enrichment into operational databases.</li>
+                <li>Hands-on integration with external API services — <strong>Anthropic</strong>, <strong>Tavily</strong>, and others — to power internal LLM workflows.</li>
+                <li>Internal platform tooling for seamless operations across the team.</li>
+              </ul>
+              <p class="timeline-stack">
+                <code>Python</code> <code>SQL</code> <code>Anthropic API</code> <code>Tavily</code>
+              </p>
+            </article>
+          </li>
+
+          <!-- IMPACT 2025 -->
+          <li class="timeline-entry timeline-entry--research">
+            <div class="timeline-date">
+              <span class="timeline-date-from">Dec 2025</span>
+            </div>
+            <article class="timeline-card">
+              <header class="timeline-card-head">
+                <span class="timeline-type timeline-type--research">Research</span>
+                <h3 class="timeline-role">Manuscript accepted &amp; presented &mdash; IMPACT 2025</h3>
+                <p class="timeline-org">Springer (proceedings forthcoming)</p>
+              </header>
+              <p class="timeline-paper-title">"Cross-Modal Transfer Learning in Domain-Adaptive Video Summarization"</p>
+              <ul class="timeline-points">
+                <li>Presented at the conference on Dec 6, 2025.</li>
+                <li>First work to quantify catastrophic forgetting in cross-modal LoRA transfer (14&ndash;50% ROUGE drop, p&lt;0.001).</li>
+                <li>Manuscript with publisher; proceedings publication pending.</li>
+              </ul>
+            </article>
+          </li>
+
+          <!-- MedGemma Challenge -->
+          <li class="timeline-entry">
+            <div class="timeline-date">
+              <span class="timeline-date-from">2026</span>
+            </div>
+            <article class="timeline-card">
+              <header class="timeline-card-head">
+                <span class="timeline-type timeline-type--hackathon">Hackathon</span>
+                <h3 class="timeline-role">Google MedGemma Impact Challenge 2026</h3>
+                <p class="timeline-org">Main Track + Novel Task Prize entry</p>
+              </header>
+              <ul class="timeline-points">
+                <li>Built <strong>MedScribe</strong> &mdash; clinical SOAP note generation in physician shorthand. 16 &rarr; 5 min per encounter, 0% hallucination, 90/100 quality on internal eval.</li>
+                <li>MedGemma 1.5 4B + 4.2M-parameter LoRA, fine-tuned on 712 curated samples for $1.28.</li>
+              </ul>
+            </article>
+          </li>
+
+          <!-- Gemma 4 Good Hackathon -->
+          <li class="timeline-entry">
+            <div class="timeline-date">
+              <span class="timeline-date-from">2026</span>
+            </div>
+            <article class="timeline-card">
+              <header class="timeline-card-head">
+                <span class="timeline-type timeline-type--hackathon">Hackathon</span>
+                <h3 class="timeline-role">Gemma 4 Good Hackathon</h3>
+                <p class="timeline-org">Health &amp; Sciences &middot; Ollama &middot; Unsloth &middot; Cactus tracks</p>
+              </header>
+              <ul class="timeline-points">
+                <li>Built <strong>Sakhi</strong> &mdash; Hindi voice-to-form for India's 1M+ ASHA health workers.</li>
+                <li>Dual deployment: laptop (Whisper + Gemma 4 E4B function-calling, ~15s) and on-device Android (Gemma 4 E2B INT4 via Cactus SDK, ~5min).</li>
+                <li>Six-layer anti-hallucination pipeline; fine-tuned on 1,154 synthetic ASHA conversations.</li>
+              </ul>
+            </article>
+          </li>
+
+          <!-- Anaverse 2.0 -->
+          <li class="timeline-entry timeline-entry--rank">
+            <div class="timeline-date">
+              <span class="timeline-date-from">2026</span>
+            </div>
+            <article class="timeline-card">
+              <header class="timeline-card-head">
+                <span class="timeline-type timeline-type--competition">Competition</span>
+                <h3 class="timeline-role">Anaverse 2.0 &mdash; Celebal Technologies</h3>
+                <p class="timeline-org">Hiring-track hackathon</p>
+              </header>
+              <p class="timeline-rank">
+                <span class="timeline-rank-num">78</span>
+                <span class="timeline-rank-of">/ 1,100+ participants</span>
+                <span class="timeline-rank-pct">&middot; top 7%</span>
+              </p>
+            </article>
+          </li>
+
+        </ol>
+
+        <!-- Coursework strip -->
+        <div class="coursework">
+          <span class="coursework-label">Coursework &amp; assessments</span>
+          <ul class="coursework-list" role="list">
+            <li><a href="https://coursera.org/verify/X39NBXF0HMQ0" target="_blank" rel="noopener"><code>Stanford ML Specialization</code> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/TBQ0BBDSCE37" target="_blank" rel="noopener"><code>DeepLearning.AI Advanced Algorithms</code> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.coursera.org/user/3fede65d011d7359aa0b95327d2a4844" target="_blank" rel="noopener"><code>IBM Python &amp; Data Analysis</code> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.hackerrank.com/certificates/0f7bdf5a4055" target="_blank" rel="noopener"><code>HackerRank SQL (Intermediate)</code> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.hackerrank.com/certificates/ef29c3044601" target="_blank" rel="noopener"><code>HackerRank Python</code> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.netacad.com/" target="_blank" rel="noopener"><code>Cisco Python Essentials 1</code> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+            </div><!-- /.experience-rail -->
+          </div><!-- /.experience-viewport -->
+        </div><!-- /.experience-sticky -->
+      </section>
+
+      <!-- ============= CONTACT ============= -->
+      <section id="contact" class="section">
+        <div class="section-inner">
+        <div class="section-head">
+          <span class="section-eyebrow">05 &mdash; Contact</span>
+          <h2>Contact</h2>
+          <p class="section-sub">Easiest way to reach me — pick whichever you prefer.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <h3><i class="fas fa-phone" aria-hidden="true"></i> Phone</h3>
+              <p>+91&nbsp;9927280188</p>
+            </div>
+            <div class="contact-item">
+              <h3><i class="fas fa-envelope" aria-hidden="true"></i> Email</h3>
+              <p><a href="mailto:tusharbrisingr9802@gmail.com">tusharbrisingr9802@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+              <h3><i class="fas fa-location-dot" aria-hidden="true"></i> Location</h3>
+              <p>Uttar Pradesh, India</p>
+            </div>
+          </div>
+
           <form
+            class="contact-form"
+            id="contact-form"
             action="https://formsubmit.co/tusharbrisingr9802@gmail.com"
             method="POST"
-            class="contact__form grid"
+            novalidate
           >
-            <!-- Hidden Configurations -->
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="box" />
-            <input
-              type="hidden"
-              name="_next"
-              value="https://tushar-9802.github.io/Portfolio/"
-            />
+            <input type="hidden" name="_next" value="https://tushar-9802.github.io/Portfolio/" />
 
-            <div class="contact__content">
-              <label class="contact__label">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter full name"
-                class="contact__input"
-                id="fullName"
-                onkeyup="validateName()"
-                required
-              />
-              <span id="name-error" class="contact__subtitle"></span>
+            <div class="field">
+              <label for="fullName">Full name</label>
+              <input type="text" id="fullName" name="name" placeholder="Your name" required />
+              <span class="field-error" data-error-for="fullName"></span>
             </div>
 
-            <div class="contact__content">
-              <label class="contact__label">Email</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter email address"
-                class="contact__input"
-                id="email_id"
-                onkeyup="validateEmail()"
-                required
-              />
-              <span id="email-error" class="contact__subtitle"></span>
+            <div class="field">
+              <label for="email_id">Email</label>
+              <input type="email" id="email_id" name="email" placeholder="you@example.com" required />
+              <span class="field-error" data-error-for="email_id"></span>
             </div>
 
-            <div class="contact__content">
-              <label class="contact__label">Subject</label>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Enter a subject line"
-                class="contact__input"
-                id="subject"
-                required
-              />
+            <div class="field field--wide">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
             </div>
 
-            <div class="contact__content">
-              <label class="contact__label">Message</label>
-              <textarea
-                name="message"
-                cols="0"
-                rows="7"
-                placeholder="Enter your message"
-                class="contact__input"
-                id="message"
-                onkeyup="validateMessage()"
-                required
-              ></textarea>
-              <span id="message-error" class="contact__subtitle"></span>
+            <div class="field field--wide">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Say hi or pitch a project..." required></textarea>
+              <span class="field-error" data-error-for="message"></span>
             </div>
 
-            <div>
-              <button type="submit" class="button button--flex">
-                Send Message
-                <i class="fas fa-paper-plane button__icon"></i>
-              </button>
-            </div>
+            <button type="submit" class="btn btn-primary">
+              Send message <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
           </form>
         </div>
-      </div>
-    </center>
-  </div>
-</section>
-<div id="theme-toggle">
-  <i id="theme-icon" class="fa-solid fa-moon"></i>
-</div>
-  <script src="script.js"></script>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
