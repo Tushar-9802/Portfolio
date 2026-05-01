@@ -332,40 +332,68 @@
       skillsTerminal.classList.add('is-running');
       if (terminalHint) terminalHint.style.display = 'none';
 
-      appendLine('<span class="prompt">&gt;</span> Initializing PyTorch backend... <span class="ok">&check;</span>');
-      await wait(reduceMotion ? 80 : 360);
+      const tag = (cls, txt) => '<span class="' + cls + '">' + txt + '</span>';
+      const ts = (offset = 0) => {
+        const d = new Date(Date.now() + offset);
+        return d.toTimeString().slice(0, 8);
+      };
+      const log = (level, msg) => {
+        const cls = level === 'WARN' ? 'warn' : level === 'ERR' ? 'err' : level === 'OK' ? 'ok' : 'info';
+        appendLine(tag('ts', '[' + ts() + ']') + ' ' + tag(cls, level.padEnd(4)) + ' ' + msg);
+      };
+
+      // Realistic Python startup chatter
+      appendLine(tag('comment', '# Python 3.11.7 · PyTorch 2.4.0+cu121 · CUDA 12.1'));
+      await wait(reduceMotion ? 40 : 220);
+      log('INFO', 'detected device=' + tag('val', 'cuda:0') + ' (' + tag('val', 'NVIDIA RTX 5070 Ti') + ', 16GB)');
+      await wait(reduceMotion ? 40 : 200);
+      log('INFO', 'torch.set_default_dtype(' + tag('val', 'torch.bfloat16') + ')');
+      await wait(reduceMotion ? 40 : 200);
+      log('WARN', tag('val', 'transformers') + ' v4.46: FutureWarning: ' + tag('comment', '`use_cache=True` is incompatible with gradient_checkpointing'));
+      await wait(reduceMotion ? 40 : 220);
+      log('INFO', 'loading checkpoint shards from ' + tag('file', './features/'));
+      await wait(reduceMotion ? 60 : 300);
+      appendLine('');
+
+      const shapes = [
+        '[5, 768]',
+        '[8, 4096, 4096]',
+        '[6, 2048]',
+        '[6, 1024]',
+        '[5, 512]',
+      ];
 
       for (let i = 0; i < shards.length; i++) {
         const s = shards[i];
         appendLine(
-          '<span class="prompt">&gt;</span> Loading shard ' +
-          '<span class="num">' + (i + 1) + '/5</span>: ' +
-          '<span class="file">' + s.name + '</span>'
+          tag('prompt', '→ ') +
+          tag('num', '[' + (i + 1) + '/5]') + ' loading ' +
+          tag('file', s.name) +
+          ' ' + tag('comment', '· shape=' + shapes[i])
         );
         const barLine = appendLine('', '');
         if (reduceMotion) {
-          // Skip the bar animation; just snap to 100%.
           barLine.innerHTML =
             '  <span class="bar"><span class="bar-fill">' +
             '█'.repeat(22) + '</span></span> <span class="pct">100%</span>' +
-            ' <span class="size">&middot; ' + s.mb + ' MB</span>';
+            ' <span class="size">· ' + s.mb + ' MB</span>';
         } else {
           await animateBar(barLine, s.dur, s.mb);
         }
 
-        // Reveal the corresponding skill-group card.
         if (skillGroups[i]) skillGroups[i].classList.add('is-revealed');
-        await wait(reduceMotion ? 30 : 130);
+        await wait(reduceMotion ? 30 : 110);
       }
 
+      appendLine('');
       await wait(reduceMotion ? 80 : 240);
       const totalChips = skillGroups.reduce((n, g) => n + g.querySelectorAll('.chips li').length, 0);
-      appendLine('<span class="ok">Arsenal initialized</span> &mdash; <span class="num">' + totalChips + '</span> capabilities loaded.');
-      appendLine(
-        '<span class="prompt">tushar</span><span style="color:var(--text-muted)">@</span><span class="prompt">portfolio</span>:' +
-        '<span class="file">~/arsenal</span><span style="color:var(--text-muted)">$</span> <span class="terminal-cursor"></span>',
-        ''
-      );
+      log('OK', 'all features loaded · ' + tag('num', totalChips) + ' parameters resident in memory');
+      await wait(reduceMotion ? 40 : 200);
+      log('INFO', 'forward pass ready · ' + tag('val', 'eval()') + ' mode');
+      await wait(reduceMotion ? 40 : 240);
+      appendLine('');
+      appendLine(tag('repl', '>>> ') + tag('comment', '# features ready — scroll to inspect') + ' <span class="terminal-cursor"></span>');
     };
 
     skillsTerminal.addEventListener('click', runScript);
@@ -497,6 +525,110 @@
         e.preventDefault();
         firstInvalid.focus();
       }
+    });
+  }
+
+  /* ---------- Live stats: GitHub + HuggingFace ----------
+     Fetched once on load. Both are public, CORS-friendly endpoints — no key,
+     no proxy. Falls back gracefully on rate-limit / offline. */
+  const liveStatsRoot = document.querySelector('[data-live-stats]');
+  if (liveStatsRoot) {
+    const statusEl = liveStatsRoot.querySelector('[data-stats-status]');
+    const statusText = statusEl?.querySelector('.stats-status-text');
+    const ghSummary = liveStatsRoot.querySelector('[data-gh-summary]');
+    const ghActive = liveStatsRoot.querySelector('[data-gh-active]');
+    const hfSummary = liveStatsRoot.querySelector('[data-hf-summary]');
+    const hfActive = liveStatsRoot.querySelector('[data-hf-active]');
+
+    /* Fallbacks shown if a fetch fails — based on real, manually verified
+       counts so the strip never looks broken. */
+    const fallback = {
+      github: { repos: 12, summary: '12 public repos · joined 2023', active: 'last active: Hybrid-Dataset-Summariser' },
+      hf: { models: 4, datasets: 1, summary: '4 models · 1 dataset · publicly available', active: 'last update: hybrid-summariser-phase2-lora' },
+    };
+
+    const setStatus = (state, text) => {
+      if (!statusEl) return;
+      statusEl.dataset.state = state;
+      if (statusText) statusText.textContent = text;
+    };
+
+    /* Format an ISO date as "X days ago" / "X mo ago" — short, terminal-y. */
+    const relTime = (iso) => {
+      if (!iso) return '';
+      const then = new Date(iso).getTime();
+      if (Number.isNaN(then)) return '';
+      const days = Math.max(0, Math.floor((Date.now() - then) / 86400000));
+      if (days === 0) return 'today';
+      if (days === 1) return '1d ago';
+      if (days < 30) return days + 'd ago';
+      const months = Math.floor(days / 30);
+      if (months < 12) return months + 'mo ago';
+      return Math.floor(months / 12) + 'y ago';
+    };
+
+    const fetchGitHub = async () => {
+      try {
+        /* Sort by pushed-desc, take the top hit — that's "last active". */
+        const res = await fetch('https://api.github.com/users/Tushar-9802/repos?per_page=100&sort=pushed&direction=desc');
+        if (!res.ok) throw new Error('gh ' + res.status);
+        const repos = await res.json();
+        if (!Array.isArray(repos)) throw new Error('gh shape');
+        const publicRepos = repos.length;
+        const top = repos[0];
+        const totalStars = repos.reduce((n, r) => n + (r.stargazers_count || 0), 0);
+        const summary = publicRepos + ' public repos' + (totalStars > 0 ? ' · ★ ' + totalStars : '');
+        const active = top ? 'last active: ' + top.name + ' · ' + relTime(top.pushed_at) : '';
+        if (ghSummary) ghSummary.textContent = summary;
+        if (ghActive) ghActive.textContent = active;
+        return true;
+      } catch (e) {
+        if (ghSummary) ghSummary.textContent = fallback.github.summary;
+        if (ghActive) ghActive.textContent = fallback.github.active;
+        return false;
+      }
+    };
+
+    const fetchHF = async () => {
+      try {
+        const [modelsRes, datasetsRes] = await Promise.all([
+          fetch('https://huggingface.co/api/models?author=Tushar9802'),
+          fetch('https://huggingface.co/api/datasets?author=Tushar9802'),
+        ]);
+        if (!modelsRes.ok || !datasetsRes.ok) throw new Error('hf');
+        const models = await modelsRes.json();
+        const datasets = await datasetsRes.json();
+        const totalDownloads = [...models, ...datasets].reduce((n, m) => n + (m.downloads || 0), 0);
+        /* Newest by lastModified across both. */
+        const all = [...models, ...datasets].sort((a, b) => {
+          const at = new Date(a.lastModified || 0).getTime();
+          const bt = new Date(b.lastModified || 0).getTime();
+          return bt - at;
+        });
+        const top = all[0];
+        const summary = models.length + ' model' + (models.length === 1 ? '' : 's') +
+                        ' · ' + datasets.length + ' dataset' + (datasets.length === 1 ? '' : 's') +
+                        (totalDownloads > 0 ? ' · ' + totalDownloads + ' downloads' : '');
+        let active = '';
+        if (top) {
+          const name = (top.id || top.modelId || '').split('/').pop();
+          active = 'last update: ' + name + ' · ' + relTime(top.lastModified);
+        }
+        if (hfSummary) hfSummary.textContent = summary;
+        if (hfActive) hfActive.textContent = active;
+        return true;
+      } catch (e) {
+        if (hfSummary) hfSummary.textContent = fallback.hf.summary;
+        if (hfActive) hfActive.textContent = fallback.hf.active;
+        return false;
+      }
+    };
+
+    /* Kick both off in parallel. Status pill resolves once both settle. */
+    Promise.all([fetchGitHub(), fetchHF()]).then((results) => {
+      const allOk = results.every(Boolean);
+      if (allOk) setStatus('ok', 'live');
+      else setStatus('error', 'cached');
     });
   }
 })();
