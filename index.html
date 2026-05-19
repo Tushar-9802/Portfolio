@@ -344,7 +344,7 @@
                   Offline-first voice-to-form for India's 1M+ ASHA health workers. Hindi home-visit conversations become structured government forms with real-time referral decisions for maternal and child health.
                 </p>
                 <p>
-                  Dual deployment: <strong>health-center mode</strong> (Whisper ASR + Gemma 4 E4B function-calling, ~15s/visit) and <strong>field mode</strong> (on-device Gemma 4 E2B INT4 via Cactus SDK on Android, ~5min/visit). Six-layer anti-hallucination pipeline with clinical range validation. Fine-tuned on 1,154 synthetic ASHA conversations.
+                  Dual deployment: <strong>health-center mode</strong> (Whisper ASR + Gemma 4 E4B function-calling, ~15s/visit) and <strong>field mode</strong> (on-device Gemma 4 E2B INT4 via Cactus SDK on Android, ~5min/visit). Six-layer anti-hallucination pipeline with clinical range validation. Fine-tuned on 1,154 synthetic ASHA conversations, then stress-tested on real Hindi voice (4 recordings, 2 speakers).
                 </p>
                 <ul class="project-metrics">
                   <li><b>87%</b> end-to-end pass rate (synthetic Hindi audio)</li>
