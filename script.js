@@ -592,13 +592,13 @@
     const fetchHF = async () => {
       try {
         const [modelsRes, datasetsRes] = await Promise.all([
-          fetch('https://huggingface.co/api/models?author=Tushar9802'),
-          fetch('https://huggingface.co/api/datasets?author=Tushar9802'),
+          fetch('https://huggingface.co/api/models?author=Tushar9802&expand[]=downloadsAllTime&expand[]=lastModified'),
+          fetch('https://huggingface.co/api/datasets?author=Tushar9802&expand[]=downloadsAllTime&expand[]=lastModified'),
         ]);
         if (!modelsRes.ok || !datasetsRes.ok) throw new Error('hf');
         const models = await modelsRes.json();
         const datasets = await datasetsRes.json();
-        const totalDownloads = [...models, ...datasets].reduce((n, m) => n + (m.downloads || 0), 0);
+        const totalDownloads = [...models, ...datasets].reduce((n, m) => n + (m.downloadsAllTime || 0), 0);
         /* Newest by lastModified across both. */
         const all = [...models, ...datasets].sort((a, b) => {
           const at = new Date(a.lastModified || 0).getTime();
